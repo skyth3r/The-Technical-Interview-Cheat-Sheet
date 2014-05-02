@@ -1,6 +1,13 @@
+---
+layout: post
+title: "The Tech Interview Cheat Sheet"
+date: 2014-05-02 19:39:02 -0400
+comments: true
+categories: "Tech&nbspInterview Comp Sci CS Cheat&nbspSheet"
+---
 ## Studying for a Tech Interview Sucks, so Here's a Cheat Sheet to Help
 
-This list is meant to be a both a quick guide and reference for further research into these topics.  It's basically a summary of that comp sci course you never took or forgot about, so there's no way it can cover everything very in depth.  It also will be available as a [gist](https://gist.github.com/TSiege/cbb0507082bb18ff7e4b) on Github for everyone to edit and add to.
+This list is meant to be a both a quick guide and reference for further research into these topics.  It's basically a summary of that comp sci course you never took or forgot about, so there's no way it can cover everything in depth.  It also will be available as a [gist](https://gist.github.com/TSiege/cbb0507082bb18ff7e4b) on Github for everyone to edit and add to.
 
 ## Data Structure Basics
 
@@ -8,14 +15,14 @@ This list is meant to be a both a quick guide and reference for further research
 ####Definition:
 - Stores data elements based on an sequential, most commonly 0 based, index.
 - Based on [tuples](http://en.wikipedia.org/wiki/Tuple) from set theory.
-- They are one of the oldest, most commonly used data structure.  
+- They are one of the oldest, most commonly used data structures.  
   
 ####What you need to know:
 - Optimal for indexing; bad at searching, inserting, and deleting (except at the end).
-- **Linear arrays** or one dimensional arrays are the most basic.
-    - Are static in size, meaning that they are declared with a fixed size.
+- **Linear arrays**, or one dimensional arrays, are the most basic.
+  - Are static in size, meaning that they are declared with a fixed size.
 - **Dynamic arrays** are like one dimensional arrays, but have reserved space for additional elements.
-    - If a dynamic array is full it copies it's contents to a larger array.
+  - If a dynamic array is full, it copies it's contents to a larger array.
 - **Two dimensional arrays** have x and y indices like a grid or nested arrays.  
   
 ####Big O efficiency:
@@ -27,14 +34,14 @@ This list is meant to be a both a quick guide and reference for further research
 
 ###**Linked List**
 ####Definition: 
-- Stores data with **nodes** that point to another node.
-  - Node, most basic has one datum and one reference.
+- Stores data with **nodes** that point to other nodes.
+  - Nodes, at its most basic it has one datum and one reference (another node).
   - A linked list _chains_ nodes together by pointing one node's reference towards another node.  
 
 ####What you need to know:
 - Designed to optimize insertion and deletion, slow at indexing and searching.
 - **Doubly linked list** has nodes that reference the previous node.
-- **Circularly linked list** is simple linked list whose last node references the first.
+- **Circularly linked list** is simple linked list whose **tail**, the last node, references the **head**, the first node.
 - **Stack**, commonly implemented with linked lists but can be made from arrays too.
   - Stacks are **last in, first out** (LIFO) data structures.
   - Made with a linked list by having the head be the only place for insertion and removal.
@@ -52,8 +59,8 @@ This list is meant to be a both a quick guide and reference for further research
 ###**Hash Table or Hash Map**
 ####Definition: 
 - Stores data with key value pairs.
-- **Hash functions** accept a key and return a output unique only to that specific key. 
-  - This is known as **hashing**, which is the concept that a input and output have a one-to-one correspondence to map information.
+- **Hash functions** accept a key and return an output unique only to that specific key. 
+  - This is known as **hashing**, which is the concept that an input and an output have a one-to-one correspondence to map information.
   - Hash functions return a unique address in memory for that data.
 
 ####What you need to know:
@@ -86,9 +93,9 @@ This list is meant to be a both a quick guide and reference for further research
   - Because of the above it is more likely to be used as a data structure than a binary tree.
 
 ####Big O efficiency:
-- Indexing:         Binary Search Tree: O(log n)
-- Search:           Binary Search Tree: O(log n)
-- Insertion:        Binary Search Tree: O(log n) 
+- Indexing:  Binary Search Tree: O(log n)
+- Search:    Binary Search Tree: O(log n)
+- Insertion: Binary Search Tree: O(log n) 
 
 
 ## Search Basics
@@ -115,7 +122,7 @@ This list is meant to be a both a quick guide and reference for further research
 ####Definition:
 - An algorithm that searches a tree (or graph) by searching depth of the tree first, starting at the root.
   - It traverses left down a tree until it cannot go further.
-  - Once it reaches the end of a branch it traverses back up trying the right child of nodes on that branch, and if possible left.
+  - Once it reaches the end of a branch it traverses back up trying the right child of nodes on that branch, and if possible left from the right children.
   - When finished examining a branch it moves to the node right of the root then tries to go left on all it's children until it reaches the bottom.
   - The right most node is evaluated last (the node that is right of all it's ancestors). 
   
@@ -141,6 +148,7 @@ This list is meant to be a both a quick guide and reference for further research
   - If using a DFS on a tree that is very deep you might go unnecessarily deep in the search. See [xkcd](http://xkcd.com/761/) for more information.
   - Breadth First Search tends to be a looping algorithm.
   - Depth First Search tends to be a recursive algorithm.
+
 
 ## Efficient Sorting Basics
 ###**Merge Sort**
@@ -184,7 +192,7 @@ This list is meant to be a both a quick guide and reference for further research
   - It repeats this process until it no longer moves and element to the left.
 
 ####What you need to know:
-- While it is very simple to implement it is the least efficient of these three sorting methods.
+- While it is very simple to implement, it is the least efficient of these three sorting methods.
 - Know that it moves one space to the right comparing two elements at a time and moving the smaller on to left.
 
 ####Big O efficiency:
@@ -244,7 +252,7 @@ recursive method (array, n)       | iterative method (array)
 ###**Greedy Algorithm**
 ####Definition:
 - An algorithm that, while executing, selects only the information that meets a certain criteria.
-The general five components, taken from [Wikipedia](http://en.wikipedia.org/wiki/Greedy_algorithm#Specifics):
+- The general five components, taken from [Wikipedia](http://en.wikipedia.org/wiki/Greedy_algorithm#Specifics):
   - A candidate set, from which a solution is created.
   - A selection function, which chooses the best candidate to be added to the solution.
   - A feasibility function, that is used to determine if a candidate can be used to contribute to a solution.
