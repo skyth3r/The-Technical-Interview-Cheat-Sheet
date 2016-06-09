@@ -58,7 +58,7 @@ This list is meant to be a both a quick guide and reference for further research
 
 ####What you need to know:
 - Designed to optimize searching, insertion, and deletion.
-- **Hash collisions** are when a hash function returns the same output for two distinct outputs.
+- **Hash collisions** are when a hash function returns the same output for two distinct inputs.
   - All hash functions have this problem.
   - This is often accommodated for by having the hash tables be very large.
 - Hashes are important for associative arrays and database indexing.
