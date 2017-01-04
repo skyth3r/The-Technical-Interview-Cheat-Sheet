@@ -35,7 +35,7 @@ This list is meant to be a both a quick guide and reference for further research
 - Designed to optimize insertion and deletion, slow at indexing and searching.
 - **Singly link list** has nodes that reference the next node.
 - **Doubly linked list** has nodes that reference the next node and the previous node.
-- **Circularly linked list** is simple linked list whose **tail**, the last node, references the **head**, the first node.
+- **Circular linked list** is simple linked list whose **tail**, the last node, references the **head**, the first node.
 - **Stack**, commonly implemented with linked lists but can be made from arrays too.
   - Stacks are **last in, first out** (LIFO) data structures.
   - Made with a linked list by having the head be the only place for insertion and removal.
