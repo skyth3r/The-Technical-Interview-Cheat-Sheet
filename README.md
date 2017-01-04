@@ -1,4 +1,4 @@
-# The-Technical-Interview-Cheat-Sheet
+# The Technical Interview Cheat Sheet
 Technical interview cheat sheet, forked from TSiege, with my own notes here and there. Feel free to add anything.
 
 ## Update
