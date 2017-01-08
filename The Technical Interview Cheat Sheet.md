@@ -1,6 +1,6 @@
-## Studying for a Tech Interview Sucks, so Here's a Cheat Sheet to Help
+## Data Structures and Algorithms
 
-This list is meant to be a both a quick guide and reference for further research into these topics.  It's basically a summary of that Computer Science course you never took or forgot about, so there's no way it can cover everything in depth. It also will be available as a [gist](https://gist.github.com/TSiege/cbb0507082bb18ff7e4b) on Github for everyone to edit and add to.
+This is a summary of the things taught within IN2002 Data Structures and Algorithms module taught at City, University of London. It was made using a gist 'The Technical Interview Cheat Sheet' created by [TSiege] (https://github.com/TSiege). This does not contain everything but I plan on adding more to it from time to time. Feel free to fork it and add your own changes.
 
 ## Data Structure Basics
 
@@ -9,7 +9,7 @@ This list is meant to be a both a quick guide and reference for further research
 - Stores data elements based on an sequential, most commonly 0 based, index.
 - Based on [tuples](http://en.wikipedia.org/wiki/Tuple) from set theory.
 - They are one of the oldest, most commonly used data structures.  
-  
+
 ####What you need to know:
 - Optimal for indexing; bad at searching, inserting, and deleting (except at the end).
 - **Linear arrays**, or one dimensional arrays, are the most basic.
@@ -17,43 +17,60 @@ This list is meant to be a both a quick guide and reference for further research
 - **Dynamic arrays** are like one dimensional arrays, but have reserved space for additional elements.
   - If a dynamic array is full, it copies it's contents to a larger array.
 - **Two dimensional arrays** have x and y indices like a grid or nested arrays.  
-  
+
 ####Big O efficiency:
 - Indexing:         Linear array: O(1),      Dynamic array: O(1)
 - Search:           Linear array: O(n),      Dynamic array: O(n)
 - Optimized Search: Linear array: O(log n), Dynamic array: O(log n)
 - Insertion:        Linear array: n/a        Dynamic array: O(n)
-  
+
 
 ###**Linked List**
-####Definition: 
+####Definition:
 - Stores data with **nodes** that point to other nodes.
   - Nodes, at its most basic it has one datum and one reference (another node).
   - A linked list _chains_ nodes together by pointing one node's reference towards another node.  
 
 ####What you need to know:
 - Designed to optimize insertion and deletion, slow at indexing and searching.
-- **Singly link list** has nodes that reference the next node.
+- **Singly link list** has nodes that reference the next node and the tail node has a reference of null.
 - **Doubly linked list** has nodes that reference the next node and the previous node.
 - **Circular linked list** is simple linked list whose **tail**, the last node, references the **head**, the first node.
 - **Stack**, commonly implemented with linked lists but can be made from arrays too.
+  - Visualize a stack of paper
   - Stacks are **last in, first out** (LIFO) data structures.
   - Made with a linked list by having the head be the only place for insertion and removal.
+  - Elements can be added to the top of the stack
+  - Elements can be removed from the top of the stack
+  - Stack can be checked to see if it is empty
 - **Queues**, too can be implemented with a linked list or an array.
-  - Queues are a **first in, first out** (FIFO) data structure.
+  - Visualize a line of customers. The customer at the front of the line is the one to be served first as they are the first person in line (they have the highest priority)
+  - Queues are a **first in, first out** (FIFO) data structure. (refer to example above)
   - Made with a doubly linked list that only removes from head and adds to tail.  
+  - Elements can be added to the queue
+  - Elements can be removed from the queue
+  - Queue can be checked to see if it is empty
 
 ####Big O efficiency:
 - Indexing:         Linked Lists: O(n)
 - Search:           Linked Lists: O(n)
 - Optimized Search: Linked Lists: O(n)
-- Insertion:        Linked Lists: O(1)  
+- Insertion:        Linked Lists: O(1)
 
+####Order of Complexity (Fastest to slowest)
+1. O(1)
+2. O(log n)
+3. O(n)
+4. O(n^2)
+5. O(n^3)
+6. O(n^k)
+7. O(a^n)
+8. O(n!)
 
 ###**Hash Table or Hash Map**
-####Definition: 
+####Definition:
 - Stores data with key value pairs.
-- **Hash functions** accept a key and return an output unique only to that specific key. 
+- **Hash functions** accept a key and return an output unique only to that specific key.
   - This is known as **hashing**, which is the concept that an input and an output have a one-to-one correspondence to map information.
   - Hash functions return a unique address in memory for that data.
 
@@ -71,9 +88,10 @@ This list is meant to be a both a quick guide and reference for further research
 
 
 ###**Binary Tree**
-####Definition: 
+####Definition:
 - Is a tree like data structure where every node has at most two children.
-  - There is one left and right child node.
+- The first node in the tree is the root node of the tree
+- There is one left and right child node to each parent node.
 
 ####What you need to know:
 - Designed to optimize searching and sorting.
@@ -89,24 +107,44 @@ This list is meant to be a both a quick guide and reference for further research
 ####Big O efficiency:
 - Indexing:  Binary Search Tree: O(log n)
 - Search:    Binary Search Tree: O(log n)
-- Insertion: Binary Search Tree: O(log n) 
+- Insertion: Binary Search Tree: O(log n)
 
+###**Heaps**
+####Definition:
+- Is a type of tree that helps distribute and reduce load
+- No node is larger than its parent
+- Heaps can be represented as arrays
+- The parent of node n (the current node) is node (n-1)/2
+- The left child of node n is node 2n + 1
+- The right child of node is node 2n + 2
+
+####Big O efficiency:
+- Insertion(add):  Heaps: O(log n)
+- Extract Max:     Heaps: O(log n)
+
+####Heap Insertion:
+- A new node is added as a leaf in the first free space
+- The node is sifted up to its correct place (at most log n swaps as the tree has at most log n levels)
+
+####Heap Extraction:
+- Extract the root and place the last leaf in the root position
+- This new root node is then sifted to its correct position which also re-establishes the heap conditions by swapping nodes (at most log n swaps)
 
 ## Search Basics
 ###**Breadth First Search**
 ####Definition:
 - An algorithm that searches a tree (or graph) by searching levels of the tree first, starting at the root.
-  - It finds every node on the same level, most often moving left to right. 
+  - It finds every node on the same level, most often moving left to right.
   - While doing this it tracks the children nodes of the nodes on the current level.
   - When finished examining a level it moves to the left most node on the next level.
-  - The bottom-right most node is evaluated last (the node that is deepest and is farthest right of it's level). 
+  - The bottom-right most node is evaluated last (the node that is deepest and is farthest right of it's level).
 
 ####What you need to know:
 - Optimal for searching a tree that is wider than it is deep.
 - Uses a queue to store information about the tree while it traverses a tree.
   - Because it uses a queue it is more memory intensive than **depth first search**.
   - The queue uses more memory because it needs to stores pointers
-  
+
 ####Big O efficiency:
 - Search: Breadth First Search: O(|E| + |V|)
 - E is number of edges
@@ -118,14 +156,14 @@ This list is meant to be a both a quick guide and reference for further research
   - It traverses left down a tree until it cannot go further.
   - Once it reaches the end of a branch it traverses back up trying the right child of nodes on that branch, and if possible left from the right children.
   - When finished examining a branch it moves to the node right of the root then tries to go left on all it's children until it reaches the bottom.
-  - The right most node is evaluated last (the node that is right of all it's ancestors). 
-  
+  - The right most node is evaluated last (the node that is right of all it's ancestors).
+
 ####What you need to know:
 - Optimal for searching a tree that is deeper than it is wide.
 - Uses a stack to push nodes onto.
   - Because a stack is LIFO it does not need to keep track of the nodes pointers and is therefore less memory intensive than breadth first search.
   - Once it cannot go further left it begins evaluating the stack.
-  
+
 ####Big O efficiency:
 - Search: Depth First Search: O(|E| + |V|)
 - E is number of edges
@@ -150,7 +188,7 @@ This list is meant to be a both a quick guide and reference for further research
 - A comparison based sorting algorithm
   - Divides entire dataset into groups of at most two.
   - Compares each number one at a time, moving the smallest number to left of the pair.
-  - Once all pairs sorted it then compares left most elements of the two leftmost pairs creating a sorted group of four with the smallest numbers on the left and the largest ones on the right. 
+  - Once all pairs sorted it then compares left most elements of the two leftmost pairs creating a sorted group of four with the smallest numbers on the left and the largest ones on the right.
   - This process is repeated until there is only one set.
 
 ####What you need to know:
